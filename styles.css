@@ -1,0 +1,104 @@
+body {
+    background: linear-gradient(135deg, #f8ffae 0%, #fbc2eb 50%, #43c6ac 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+}
+h1 {
+    margin-top: 40px;
+    font-size: 2.8em;
+    color: #222;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 8px #fff8;
+}
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 15px;
+    justify-content: center;
+    margin: 40px auto 20px auto;
+    width: max-content;
+    background: rgba(255,255,255,0.7);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #0001;
+    padding: 20px;
+}
+#mode-human, #mode-ai {
+    padding: 12px 32px;
+    font-size: 1.1em;
+    background: linear-gradient(90deg, #43c6ac, #fbc2eb);
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #43c6ac22;
+    transition: background 0.2s, box-shadow 0.2s;
+    margin: 0 8px;
+    font-weight: bold;
+}
+#mode-human:hover, #mode-ai:hover {
+    background: linear-gradient(90deg, #ffd166, #43c6ac);
+    box-shadow: 0 4px 16px #ffd16677;
+    cursor: pointer;
+}
+#mode-human:disabled, #mode-ai:disabled {
+    opacity: 0.6;
+    cursor: pointer; /* This line is the fix */
+}
+.cell {
+    width: 100px;
+    height: 100px;
+    font-size: 2.8em;
+    background: #fff;
+    border: 3px solid #43c6ac;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #43c6ac22;
+    font-weight: bold;
+    color: #222;
+    user-select: none;
+}
+.cell:hover {
+    background: #f8ffae;
+    box-shadow: 0 4px 16px #43c6ac33;
+}
+.cell.win {
+    background: #ffd166; /* Light, contrasting yellow */
+    color: #222;
+    animation: winnerPulse 0.7s infinite alternate;
+}
+@keyframes winnerPulse {
+    from { box-shadow: 0 0 10px #ffd16699; }
+    to { box-shadow: 0 0 30px #ffd166cc; }
+}
+#status {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 500;
+    min-height: 2em;
+    text-shadow: 1px 1px 6px #fff8;
+}
+#reset {
+    padding: 12px 32px;
+    font-size: 1.1em;
+    background: linear-gradient(90deg, #43c6ac, #fbc2eb);
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #43c6ac22;
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+    font-weight: bold;
+}
+#reset:hover {
+    background: linear-gradient(90deg, #ffd166, #43c6ac);
+    box-shadow: 0 4px 16px #ffd16677;
+}
